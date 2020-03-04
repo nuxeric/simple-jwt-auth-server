@@ -6,7 +6,7 @@ const dotenv = require('dotenv');
 const authRoute = require('./routes/auth');
 const postRoute = require('./routes/posts');
 const verifytoken = require('./routes/verifytoken')
-const test1Route = require('./routes/test1');
+
 
 
 const app = express();
@@ -37,7 +37,7 @@ app.use(express.json()); // this is needed to parse the request into json I beli
 app.use('/api/user', authRoute);
 app.use('/api/user', postRoute);
 app.use("/api/user", verifytoken.router);
-app.use('/', test1Route);
+
 
 
 
