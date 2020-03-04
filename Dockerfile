@@ -3,12 +3,11 @@ FROM node:alpine
 
 WORKDIR /usr/app
 
-COPY ./package.json ./
+COPY ./src .
 
 RUN npm install
 
-COPY ./ ./
+EXPOSE 8000
 
 # Start
 CMD [ "npm", "start" ]
-EXPOSE 3000
