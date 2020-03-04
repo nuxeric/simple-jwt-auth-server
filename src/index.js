@@ -35,7 +35,7 @@ app.use(express.json()); // this is needed to parse the request into json I beli
 
 //route middlewares
 app.use('/api/user', authRoute);
-app.use('/api/user', privateRoute);
+app.use('/protected', privateRoute);
 app.use("/api/user", verifytoken.router);
 
 
