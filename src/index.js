@@ -4,7 +4,7 @@ const dotenv = require('dotenv');
 
 //import routes
 const authRoute = require('./routes/auth');
-const postRoute = require('./routes/posts');
+const privateRoute = require('./routes/private');
 const verifytoken = require('./routes/verifytoken')
 
 
@@ -35,7 +35,7 @@ app.use(express.json()); // this is needed to parse the request into json I beli
 
 //route middlewares
 app.use('/api/user', authRoute);
-app.use('/api/user', postRoute);
+app.use('/api/user', privateRoute);
 app.use("/api/user", verifytoken.router);
 
 
