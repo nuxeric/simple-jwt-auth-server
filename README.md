@@ -82,7 +82,7 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTYwMmE1YjE2MWRhZDkxNTViZjhhN2I
 }
 ```
 
-Now you can access the "protected resources" on the route localhost:8000/protected/private with the Authorization header set to Bearer: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTYwMmE1YjE2MWRhZDkxNTViZjhhN2IiLCJpYXQiOjE1ODMzNjA5ODEsImV4cCI6MTU4MzM2ODE4MX0.rhzijx7VamftLKx4K_S85yRrmtDhQ9mP-5xtGjthjjA which will respond with your decoded jwt token.
+Now you can access the "protected resources" on the route localhost:8000/protected/private with the Authorization header set to `Bearer: <Token>` which will respond with your decoded jwt token.
 
 ```javascript
 {
