@@ -39,25 +39,34 @@ docker container run --publish 8000:8000 --detach
 The application is listening for traffic on port 8000 and you can :
 
 POST to localhost:8000/api/user/register with this set as your payload:
-```javascript
+```json
 {
-    name: "Bob Jones",
-    email: "Bobby@yahoo.com",
-    password: "123456"
+    "name": "Bob Jones",
+    "email": "Bobby@yahoo.com",
+    "password": "123456"
 }
 ```
-which will save your credentials on the database (using bcrpyt and salting the passwords)
+which will save your credentials on the database (using bcrpyt and salting the passwords) and respond with your document id.
 
-POST to localhost:8000/api/user/login with the same body and you should get a response which looks like:
+POST to localhost:8000/api/user/login with the same email and password:
+```json
+{
+    "email": "Bobby@yahoo.com",
+    "password": "123456"
+}
+```
+and you should get a response which looks like:
 ```javascript
 {
-    jwt: "2317y85ghjkabfyu81bjkb889"
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTYwMmE1YjE2MWRhZDkxNTViZjhhN2IiLCJpYXQiOjE1ODMzNjA5ODEsImV4cCI6MTU4MzM2ODE4MX0.rhzijx7VamftLKx4K_S85yRrmtDhQ9mP-5xtGjthjjA
 }
 ```
 
-Now you can access the "protected resources" on the route localhost:8000/protected/private which will respond with your user_id from the database
+Now you can access the "protected resources" on the route localhost:8000/protected/private which will respond with your decoded jwt token.
 ```javascript
 {
-    user: "12341adsfdas589y41842710jwe481720941"
+    "_id": "5e602a5b161dad9155bf8a7b",
+    "iat": 1583366662,
+    "exp": 1583373862
 }
 ```
