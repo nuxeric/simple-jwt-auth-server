@@ -10,7 +10,7 @@ function verify (req, res, next) {
         req.decodedToken = verified;
         next();
     } catch (error) {
-        res.status(400).send("Invalid Token")
+        res.status(400).send("Invalid Token / Token is Malformed")
     }
 }
 
