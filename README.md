@@ -6,8 +6,14 @@ I was just starting to learn how microservices worked, the motivation behind the
 
 ## Requirements
 
+### Prerequirements
 You must have node and npm installed already on your machine and mongoDB.
 Alternatively you can also run this application using Docker.
+
+Additionally, add a .env file to the src directory with the content to sign your jwt keys with
+```
+TOKEN_SECRET=<Some_Secret>
+```
 
 ### Step 1
 Before running the application be sure to have mongo runing in the background. I personally use the command
