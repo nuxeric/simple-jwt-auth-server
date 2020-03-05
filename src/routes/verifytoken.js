@@ -1,14 +1,14 @@
 const router = require('express').Router();
 const jwt = require('jsonwebtoken');
 
-function verify (req, res, next) {
+function verify(req, res, next) {
     let token = req.header("authorization");
     if (!token) return res.status(401).send("Access Denied");
 
     if (token.startsWith('Bearer ')) {
         // Remove Bearer from string
         token = token.slice(7, token.length).trimLeft();
-      }
+    }
 
     try {
         const verified = jwt.verify(token, process.env.TOKEN_SECRET);
@@ -20,10 +20,10 @@ function verify (req, res, next) {
 }
 
 router.get("/verifytoken", verify, (req, res) => {
-    res.status(200).send("validation please work bro"); 
+    res.status(200).send("Token is valid!");
 });
 
 module.exports = {
-    verify:verify,
-    router:router
+    verify: verify,
+    router: router
 }
